@@ -52,8 +52,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*General in command! {}, myself {}!* 
-*An Anime themed group management bot from* [Akame ga Kill](https://anilist.co/anime/20613)!!
+*Welcome! {}, I am {}!* 
+*An Anime themed group management bot from noragami!!
 
 • *Uptime:* `{}`
 • `{}` *users, across* `{}` *chats.*
@@ -63,14 +63,14 @@ HELP_STRINGS = """
 *{} comes with:*
 *AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
 
-🎛 *All commands can either be used with* `/` *or* `!`.
-🎛 *Reach out for support:* @EsDeathSupport 
+🔥*All commands can either be used with* `/` *or* `!`.
+🔥 *Reach out for support:* @Yuta_Support_Chat 
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-KURISU_IMG = "https://telegra.ph/file/9a75aa001586ef41ff5b9.png"
-KURISUIMGSTART = "https://telegra.ph/file/41fe8e7f0aee49cbb1261.gif"
+KURISU_IMG = "https://telegra.ph/file/f7673dbfdf2018a1aa30e.jpg"
+KURISUIMGSTART = "https://telegra.ph/file/29af3648f170529a38522.mp4"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 You can donate to the original writer of the Base code, Paul
@@ -195,33 +195,30 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="💞 Add EsDeath To Your Group",
+                            text="🌀ADD YUTA TO YOUR GROUP",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username))
                     ],
                      [
                          InlineKeyboardButton(
-                             text="⚙️ Support",
+                             text="⚙Support",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                          InlineKeyboardButton(
                              text="🎉 Updates",
-                             url="https://t.me/EsDeathupdates"),
-                         InlineKeyboardButton(
-                             text="🗃 Guide",
-                             url="https://t.me/EsDeathupdates/6"),
+                             url="https://t.me/Yuta_Updates"
               
                     ],
                      [
                         InlineKeyboardButton(
                              text="📍 Anime Chat",
-                             url="https://t.me/Kagesama_chat"),                    
+                             url="https://t.me/The_Phantom_Troupe"),                    
                         InlineKeyboardButton(
                              text="❓ Help & Commands ❓",
-                             url="https://t.me/Generalesdeath_bot?start=help"),      
+                             url="https://t.me/Calamity_robot?start=help"),      
                     ]]))
     else:
         update.effective_message.reply_video(
-                KURISUIMGSTART, caption="Esdeath is alive!\n<b>Haven't slept since:</b> <code>{}</code>".format(uptime), parse_mode=ParseMode.HTML)
+                KURISUIMGSTART, caption="Yato is online!\n<b>Working from :</b> <code>{}</code>".format(uptime), parse_mode=ParseMode.HTML)
         
 
 
@@ -538,7 +535,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now online!](https://telegra.ph/file/41fe8e7f0aee49cbb1261.gif)", parse_mode=ParseMode.MARKDOWN)
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now online!](https://telegra.ph/file/6416f11eea84ba9fb31a7.mp4)", parse_mode=ParseMode.MARKDOWN)
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")
@@ -582,7 +579,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("EsDeath is deployed sucessfully...")
+        LOGGER.info("Yato is deployed sucessfully...")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
